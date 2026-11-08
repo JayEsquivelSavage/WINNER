@@ -1,0 +1,14 @@
+node_modules
+dist/
+.DS_Store
+*.log
+.env
+.env.*
+.token-*
+*.pem
+*.key
+telemetry/
+diagnostics/
+.wordgoat-*.lock
+.vite/
+__pycache__/

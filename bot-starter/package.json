@@ -1,0 +1,39 @@
+{
+  "name": "winner-scrabblebot",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "npm install --prefix ../spacetimedb && spacetime generate --lang typescript --out-dir src/module_bindings --module-path ../spacetimedb",
+    "start": "BOT_NAME=winner BOT_ID=307 node --max-old-space-size=256 --import tsx src/index.ts",
+    "test": "node --import tsx --test src/*.test.ts",
+    "build": "tsc && tsc -p tsconfig.lab.json",
+    "test:integration": "../spacetimedb/node_modules/.bin/vitest run --config lab/vitest.config.ts",
+    "bench": "node --max-old-space-size=256 --expose-gc --import tsx lab/bench.ts",
+    "lab:evaluate": "node --max-old-space-size=256 --import tsx lab/experiment.ts",
+    "lab:tune": "LAB_MODE=tune node --max-old-space-size=256 --import tsx lab/experiment.ts",
+    "lab:soak": "node --max-old-space-size=256 --expose-gc --import tsx lab/soak.ts",
+    "lab:replay": "node --max-old-space-size=256 --import tsx lab/replay.ts",
+    "test:startup": "node --max-old-space-size=256 --import tsx --import ./lab/startup-preload.ts src/index.ts",
+    "live:collect": "python3 lab/collect-live.py && node --import tsx lab/live-report.ts --import --write-report && node --import tsx lab/live-performance.ts",
+    "live:report": "node --import tsx lab/live-report.ts",
+    "feedback:watch": "BOT_NAME=winner BOT_ID=307 node --import tsx lab/feedback-watch.ts",
+    "improve": "node --max-old-space-size=256 --import tsx lab/improve.ts",
+    "lab:finish": "node --max-old-space-size=256 --import tsx lab/finish-strong.ts",
+    "live:performance": "node --import tsx lab/live-performance.ts",
+    "test:reconnect": "node --max-old-space-size=256 --import tsx --import ./lab/reconnect-preload.ts src/index.ts",
+    "test:collector": "python3 -m unittest discover -s lab -p test_collect_live.py",
+    "start:baseline": "BOT_NAME=winner BOT_ID=307 node --max-old-space-size=256 --import tsx src/index.ts",
+    "lab:baseline": "BOT_NAME=winner BOT_ID=307 node --max-old-space-size=256 --import tsx lab/winner-baseline.ts"
+  },
+  "dependencies": {
+    "spacetimedb": "^2.12.0",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/ws": "^8.5.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.0"
+  }
+}

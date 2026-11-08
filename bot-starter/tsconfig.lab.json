@@ -1,0 +1,33 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "rootDir": ".."
+  },
+  "include": [
+    "lab/improve.ts",
+    "lab/feedback-worker.ts",
+    "lab/feedback-watch.ts",
+    "lab/live-report.ts",
+    "lab/simulator.ts",
+    "lab/startup-preload.ts",
+    "lab/bench.ts",
+    "lab/experiment.ts",
+    "lab/replay.ts",
+    "lab/soak.ts",
+    "lab/headtohead.ts",
+    "lab/feedback-memory.ts",
+    "lab/finish-strong.ts",
+    "lab/consistency.ts",
+    "lab/competitive-search.ts",
+    "lab/live-performance.ts",
+    "lab/market-search.ts",
+    "lab/information-evaluate.ts",
+    "lab/win-search.ts",
+    "lab/reserve-confirm.ts",
+    "lab/endgame-evaluate.ts",
+    "lab/reconnect-preload.ts",
+    "lab/bot-context.ts",
+    "lab/winner-baseline.ts"
+  ]
+}

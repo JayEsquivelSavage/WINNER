@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "id": "finish-sustainable-v1",
+  "algorithm": "challenger",
+  "parameters": {
+    "bidScale": 1.4,
+    "reserve": 8,
+    "futureWeight": 0.8,
+    "captureRate": 0.22,
+    "waitDiscount": 0.07,
+    "liquidity": 0.5,
+    "leaveWeight": 1,
+    "denial": 0,
+    "beam": 4,
+    "budgetMs": 6,
+    "marketPrior": 0
+  },
+  "crossMatchLearning": false
+}
